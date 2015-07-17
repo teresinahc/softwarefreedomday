@@ -7,7 +7,7 @@ from .forms import CertificadoForm
 
 
 class CertificadoView(FormView):
-    template_name = 'find_certificate.html'
+    template_name = 'index.html'
     form_class = CertificadoForm
     success_url = reverse_lazy('home')
 
