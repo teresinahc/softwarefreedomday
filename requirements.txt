@@ -1,7 +1,7 @@
 dj-database-url==0.3.0
 dj-static==0.0.6
+-e git://github.com/hersonls/djamin.git@80223aee9628af3656247bd8e46018cc392596f2#egg=djamin-master
 Django==1.8.2
 MySQL-python==1.2.5
-psycopg2==2.6.1
 python-decouple==2.3
 static3==0.6.1
