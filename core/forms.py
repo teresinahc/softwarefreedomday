@@ -10,9 +10,13 @@ class CertificadoForm(forms.Form):
 
     def process(self):
         cpf = self.cleaned_data['cpf']
-        cpf = cpf.replace('.', '').replace('-', '')
-        try:
-            participante = Participante.objects.get(cpf=cpf)
-        except Participante.DoesNotExist:
-            raise forms.ValidationError(u'CPF não encontrado')
+        participante = Participante.objects.get(cpf=cpf)
         return HttpResponse(participante.certificado, content_type='application/pdf')
+
+    def clean_cpf(self):
+        cpf = self.cleaned_data['cpf']
+        cpf = cpf.replace('.', '').replace('-', '')
+        participante = Participante.objects.filter(cpf=cpf)
+        if not participante.exists():
+            raise forms.ValidationError(u'CPF não encontrado')
+        return cpf
