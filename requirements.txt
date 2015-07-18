@@ -5,3 +5,4 @@ Django==1.8.2
 MySQL-python==1.2.5
 python-decouple==2.3
 static3==0.6.1
+waitress==0.8.9
