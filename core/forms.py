@@ -7,6 +7,10 @@ from .models import Participante
 
 class CertificadoForm(forms.Form):
     cpf = forms.RegexField(required=True, regex=r'\A\d{3}\.\d{3}\.\d{3}-\d{2}', error_message=u'Digite um CPF válido')
+    cpf = forms.CharField(label="Número do CPF:")
+    cpf.widget.attrs.update({'autofocus':'autofocus', 'required':'required'})
+
+    error_css_class = 'alert alert-danger'
 
     def process(self):
         cpf = self.cleaned_data['cpf']
