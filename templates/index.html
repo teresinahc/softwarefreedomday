@@ -17,6 +17,12 @@
 {% block content %}
     <div class="container">
         <form class="form-signin" method="post" action="" accept-charset="utf-8">
+            <div class="text-center">
+                <img src="{% static 'img/logo.png' %}">
+              </div>
+              <div class="text-center">
+                <p>Insira o número do CPF para baixar o certificado.</p>
+            </div>
             {% csrf_token %}
             {{ form.as_p }}
             <button class="btn btn-lg btn-primary btn-block" type="submit">Baixar</button>
